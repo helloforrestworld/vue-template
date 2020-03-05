@@ -3,6 +3,10 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+import './icons'
+import SvgIcon from '@/components/SvgIcon'
+Vue.component('SvgIcon', SvgIcon)
+
 Vue.config.productionTip = false
 
 new Vue({
