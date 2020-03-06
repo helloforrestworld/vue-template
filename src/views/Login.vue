@@ -1,24 +1,30 @@
 <template>
-  <section class="login">
-    登录页面
-  </section>
+  <div>
+    Login
+    <input type="text" v-model="username" />
+    <button @click="login">登录</button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: '',
   data () {
     return {
-
+      username: 'admin'
     }
   },
-  created () {},
   methods: {
-
+    async login () {
+      try {
+        await this.$store.dispatch('user/login', { username: this.username })
+        this.$router.push({ path: '/' })
+      } catch (error) {
+        alert(error)
+      }
+    }
   }
 }
 </script>
 
-<style lang="less" scoped>
-
+<style lang="scss" scoped>
 </style>
